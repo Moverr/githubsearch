@@ -25,8 +25,8 @@ class SearchLandingPage extends Component {
                 
 
                 {/* main window  */}
-                    <div className="row">
-				<div className="col-md-8">
+                    <div className="row ">
+				<div className="col-md-8 main_window">
                    <div className="profileCard">  </div>
 
                    <div className="profileCard"> </div>
@@ -38,7 +38,7 @@ class SearchLandingPage extends Component {
                    <div className="profileCard"> </div>
                    <div className="profileCard"> </div>
                    <div className="profileCard"> </div>
-                   
+
 
 
 				</div>
@@ -46,6 +46,33 @@ class SearchLandingPage extends Component {
                     Detail
 				</div>
 			</div>
+            <div className="row">
+            <nav>
+				<ul className="pagination">
+					<li className="page-item">
+						<a className="page-link docs-creator" href="#"><i className="fa fa-backward"></i></a>
+					</li>
+					<li className="page-item">
+						<a class="page-link docs-creator" href="#">1</a>
+					</li>
+					<li className="page-item">
+						<a className="page-link docs-creator" href="#">2</a>
+					</li>
+					<li className="page-item">
+						<a className="page-link docs-creator" href="#">3</a>
+					</li>
+					<li className="page-item">
+						<a className="page-link docs-creator" href="#">4</a>
+					</li>
+					<li className="page-item">
+						<a className="page-link docs-creator" href="#">5</a>
+					</li>
+					<li className="page-item">
+						<a className="page-link docs-creator" href="#"><i className="fa fa-forward"></i></a>
+					</li>
+				</ul>
+			</nav>
+            </div>
                 </div>
             </div>
         );

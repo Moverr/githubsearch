@@ -6,3 +6,6 @@ Main Cards Design ::
     height: 300px;
     border: 1px #666633 solid; padding: 5px; margin: 8px; float: left;
 }
+.main_window {
+    overflow-y: scroll; height: 750px;
+}
