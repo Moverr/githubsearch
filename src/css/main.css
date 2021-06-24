@@ -1,0 +1,8 @@
+/* 
+Main Cards Design :: 
+*/
+.profileCard{
+    width: 200px;
+    height: 300px;
+    border: 1px #666633 solid; padding: 5px; margin: 8px; float: left;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
+import '../css/main.css';
 
 class SearchLandingPage extends Component {
 
@@ -21,9 +22,30 @@ class SearchLandingPage extends Component {
                             </nav>
                         </div>
                     </div>
+                
+
+                {/* main window  */}
                     <div className="row">
-                        Interesting Scenario
-                   </div>
+				<div className="col-md-8">
+                   <div className="profileCard">  </div>
+
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   <div className="profileCard"> </div>
+                   
+
+
+				</div>
+				<div className="col-md-4">
+                    Detail
+				</div>
+			</div>
                 </div>
             </div>
         );
