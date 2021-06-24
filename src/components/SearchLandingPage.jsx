@@ -12,7 +12,7 @@ class SearchLandingPage extends Component {
                     <div className="row">
                         <div className="col-md-12">
                             <nav className="navbar navbar-expand-lg navbar-light bg-light"> 
-                                <a className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></a>
+                                <span className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></span>
                                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     {/* //todo: Search Form  */}
                                     <SearchForm placeholder="Search " age="232" />
