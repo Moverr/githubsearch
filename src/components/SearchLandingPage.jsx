@@ -16,7 +16,7 @@ class SearchLandingPage extends Component {
                                     <form className="form-inline col-md-12 ">
                                         <input className="form-control col-md-9 " type="text" />
                                         <button className="btn btn-primary my-2 my-sm-0" type="submit">
-                                            Search
+                                             <i className="fa fa-search"></i>
 						</button>
                                     </form>
 
