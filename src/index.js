@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import SearchLandingPage from './components/SearchLandingPage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SearchLandingPage />
   </React.StrictMode>,
   document.getElementById('root')
 );
