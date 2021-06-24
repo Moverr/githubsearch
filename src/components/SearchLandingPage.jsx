@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
+import ProfileCard from './ProfileCard';
+
 import '../css/main.css';
 
 class SearchLandingPage extends Component {
@@ -27,19 +29,10 @@ class SearchLandingPage extends Component {
                 {/* main window  */}
                     <div className="row ">
 				<div className="col-md-8 main_window">
-                   <div className="profileCard">  </div>
-
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-                   <div className="profileCard"> </div>
-
-
+                 
+                 {/* //todo: profile card  */}
+                  <ProfileCard />
+ 
 
 				</div>
 				<div className="col-md-4">
