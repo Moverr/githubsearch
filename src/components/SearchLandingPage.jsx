@@ -32,6 +32,10 @@ class SearchLandingPage extends Component {
                  
                  {/* //todo: profile card  */}
                   <ProfileCard />
+                  <ProfileCard />
+                  <ProfileCard />
+                  <ProfileCard />
+                  <ProfileCard />
  
 
 				</div>
