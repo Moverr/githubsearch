@@ -10,7 +10,7 @@ class SearchLandingPage extends Component {
                             <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
                                 {/* <!-- Add Github icon --> */}
-                                <a className="navbar-brand docs-creator" href="#">GITHUB</a>
+                                <a className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></a>
                                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                     <form className="form-inline col-md-12 ">
