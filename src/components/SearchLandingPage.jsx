@@ -7,19 +7,19 @@ import Pagination from './Pagination';
 
 class SearchLandingPage extends Component {
 
- 
-    constructor(props){
+
+    constructor(props) {
         super(props);
-        
-        this.state = {profiles:null} 
+
+        this.state = { profiles: null }
         this.profileCards = this.profileCards.bind(this);
         this.getProfileData = this.getProfileData.bind(this);
-        
+
     }
-    
+
     //get data
-    getProfileData(){
-        return   {
+    getProfileData() {
+        return {
             "total_count": 427409,
             "incomplete_results": false,
             "items": [
@@ -131,14 +131,14 @@ class SearchLandingPage extends Component {
             ]
         };
     }
-  
+
 
     //populate  cards 
-    profileCards (props){
-        const elems = this.getProfileData(); 
-        const profiles = elems.items; 
-        const profileCards = profiles.map((profile_item)=> <ProfileCard profile_item /> ); 
-        return profileCards; 
+    profileCards(props) {
+        const elems = this.getProfileData();
+        const profiles = elems.items;
+        const profileCards = profiles.map((profile_item) => <ProfileCard profile_item />);
+        return profileCards;
     }
 
     render() {
@@ -163,15 +163,7 @@ class SearchLandingPage extends Component {
                     <div className="row ">
                         <div className="col-md-8 main_window">
 
-                    {
-                        this.profileCards()
-                    }
-                            {/* //todo: profile card 
-                           
-                            <ProfileCard />
-                            <ProfileCard />
-                            <ProfileCard />
-                            <ProfileCard /> */}
+                            {this.profileCards()}
 
 
                         </div>
