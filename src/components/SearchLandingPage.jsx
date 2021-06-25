@@ -7,18 +7,20 @@ import Pagination from './Pagination';
 
 class SearchLandingPage extends Component {
 
-
-   
-    
+ 
     constructor(props){
         super(props);
-        const profiles = this.getProfils();
-        console.log(profiles);
-        this.state = {profiles:this.profiles}
+        
+        this.state = {profiles:null} 
+        this.profileCards = this.profileCards.bind(this);
+        
     }
     
-      getProfils = () =>{
-        return {
+  
+
+    //profile cards 
+    profileCards (props){
+        let elems = {
             "total_count": 427409,
             "incomplete_results": false,
             "items": [
@@ -129,17 +131,14 @@ class SearchLandingPage extends Component {
                 }
             ]
         };
-    }
-
-
-    //profile cards 
-    profileCards =  function (props){
-        const profiles = props.items;
+        console.log("we are  here ")
+        const profiles = elems.items;
+        console.log(elems);
         const profileCards = profiles.map((profile_item)=>
-        <ProfileCard />
+        <ProfileCard profile_item />
         );
         
-        return profileCards;
+        return profileCards; 
     }
 
     render() {
@@ -165,14 +164,14 @@ class SearchLandingPage extends Component {
                         <div className="col-md-8 main_window">
 
                     {
-                        this.profileCards(this.state.profiles)
+                        this.profileCards()
                     }
-                            {/* //todo: profile card  */}
+                            {/* //todo: profile card 
                            
                             <ProfileCard />
                             <ProfileCard />
                             <ProfileCard />
-                            <ProfileCard />
+                            <ProfileCard /> */}
 
 
                         </div>
