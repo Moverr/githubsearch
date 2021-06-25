@@ -7,6 +7,7 @@ import Pagination from './Pagination';
 import Summary from './Summary';
 import Avatar from './utils/Avatar';
 import DetailsView from './DetailsView';
+import ButtonField from './formelements/ButtonField';
 
 class SearchLandingPage extends Component {
 
@@ -213,6 +214,11 @@ class SearchLandingPage extends Component {
                     <div className="row ">
                         {/* //summary represetnation  */}
                         <Summary summary={summary} />
+                        <div className="col-md-6 tabular_window">
+                            <ButtonField><i className="fa fa-bars"></i></ButtonField>
+                            <ButtonField><i className="fa fa-bars"></i></ButtonField>
+                            
+                        </div>
                     </div>
                     {/* main window  */}
                     <div className="row ">

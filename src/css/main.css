@@ -17,6 +17,12 @@ Main Cards Design ::
 .main_window {
     overflow-y: scroll; height: 750px;
 }
+.tabular_window{
+    padding-left: 50px;
+}
+.tabular_window button{
+    margin-left: 15px; cursor: pointer;
+}
 .profileCard button{
     width: 80%;   font-size: 9px !important;  margin: auto; margin-left: 10px;
 }
