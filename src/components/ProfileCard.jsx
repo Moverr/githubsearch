@@ -1,5 +1,6 @@
 import React from 'react'
 import ButtonField from './formelements/ButtonField';
+import Avatar from './utils/Avatar';
 
 const ProfileCard = function (props) {
 
@@ -8,7 +9,7 @@ const ProfileCard = function (props) {
     return <div className="profileCard">
 
         <div className="avatar">
-            <img src={profile.avatar_url} />
+            <Avatar  image={profile.avatar_url}  />           
         </div>
         <div className="username">
             {profile.login}

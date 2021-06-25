@@ -3,12 +3,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
  
 const Avatar = ({ image }) => (
   <div>
-    <LazyLoadImage
-      alt={image.alt}
-      height={image.height}
-      src={image.src} // use normal <img> attributes as props
-      width={image.width} />
-    <span>{image.caption}</span>
+    <LazyLoadImage   src={image}    />
+    
   </div>
 );
  
