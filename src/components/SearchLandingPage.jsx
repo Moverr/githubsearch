@@ -17,6 +17,7 @@ class SearchLandingPage extends Component {
         
     }
     
+    //get data
     getProfileData(){
         return   {
             "total_count": 427409,
@@ -132,16 +133,11 @@ class SearchLandingPage extends Component {
     }
   
 
-    //profile cards 
+    //populate  cards 
     profileCards (props){
-        const elems = this.getProfileData();
-        console.log("we are  here ")
-        const profiles = elems.items;
-        console.log(elems);
-        const profileCards = profiles.map((profile_item)=>
-        <ProfileCard profile_item />
-        );
-        
+        const elems = this.getProfileData(); 
+        const profiles = elems.items; 
+        const profileCards = profiles.map((profile_item)=> <ProfileCard profile_item /> ); 
         return profileCards; 
     }
 
