@@ -4,6 +4,7 @@ import ProfileCard from './ProfileCard';
 
 import '../css/main.css';
 import Pagination from './Pagination';
+import Summary from './Summary';
 
 class SearchLandingPage extends Component {
 
@@ -11,14 +12,16 @@ class SearchLandingPage extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { profiles: null }
+        this.state = { profiles: null,summary:null }
         this.profileCards = this.profileCards.bind(this);
         this.getProfileData = this.getProfileData.bind(this);
+        this.getsummary = this.getsummary.bind(this);
 
     }
 
     //get data
     getProfileData() {
+        
         return {
             "total_count": 427409,
             "incomplete_results": false,
@@ -132,16 +135,22 @@ class SearchLandingPage extends Component {
         };
     }
 
-
+ getsummary(){
+        const elems = this.getProfileData();
+        const result = [elems.items.length,elems.total_count];
+        return result;
+ }
     //populate  cards 
     profileCards(props) {
         const elems = this.getProfileData();
+       
         const profiles = elems.items;
         const profileCards = profiles.map((profile_item) => <ProfileCard profile={profile_item} />);
         return profileCards;
     }
 
     render() {
+        const summary = this.getsummary();
         return (
             <div>
                 <div className="container-fluid">
@@ -159,9 +168,8 @@ class SearchLandingPage extends Component {
                     </div>
 
                     <div className="row ">
-                    <div className="col-md-12 summary_window">
-                        <strong>Total: 12002  </strong> &nbsp; <strong>showing: 234  </strong>
-                    </div>
+                        {/* //summary represetnation  */}
+                    <Summary  summary={summary}/>
                     </div>
                     {/* main window  */}
                     <div className="row ">
