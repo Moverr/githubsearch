@@ -8,7 +8,7 @@ Main Cards Design ::
      padding: 5px; margin: 7px; float: left;  cursor: pointer;
 }
 .profileCard:hover{
-    background:  #e7e7db  ; border-radius: 10px; 
+    background:  #e7e7db  ; border-radius: 4px; 
 }
 .main_window {
     overflow-y: scroll; height: 750px;
@@ -22,5 +22,5 @@ Main Cards Design ::
     vertical-align: middle;
     border-style: none;
     width: 100%;
-    border-radius: 36px;
+    border-radius: 7px;
 }
