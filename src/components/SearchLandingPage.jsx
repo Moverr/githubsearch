@@ -3,6 +3,7 @@ import SearchForm from './SearchForm';
 import ProfileCard from './ProfileCard';
 
 import '../css/main.css';
+import Pagination from './Pagination';
 
 class SearchLandingPage extends Component {
 
@@ -44,31 +45,7 @@ class SearchLandingPage extends Component {
 				</div>
 			</div>
             <div className="row">
-            <nav>
-				<ul className="pagination">
-					<li className="page-item">
-						<a className="page-link docs-creator" href="#"><i className="fa fa-backward"></i></a>
-					</li>
-					<li className="page-item">
-						<a class="page-link docs-creator" href="#">1</a>
-					</li>
-					<li className="page-item">
-						<a className="page-link docs-creator" href="#">2</a>
-					</li>
-					<li className="page-item">
-						<a className="page-link docs-creator" href="#">3</a>
-					</li>
-					<li className="page-item">
-						<a className="page-link docs-creator" href="#">4</a>
-					</li>
-					<li className="page-item">
-						<a className="page-link docs-creator" href="#">5</a>
-					</li>
-					<li className="page-item">
-						<a className="page-link docs-creator" href="#"><i className="fa fa-forward"></i></a>
-					</li>
-				</ul>
-			</nav>
+             <Pagination />
             </div>
                 </div>
             </div>
