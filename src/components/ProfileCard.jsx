@@ -13,8 +13,8 @@ const ProfileCard = function (props) {
         <div className="username">
             {profile.login}
         </div>
-        <div className="followers">1233</div>
-        <ButtonField > VIEW MORE</ButtonField>
+        
+        <ButtonField   className="btn btn-priimary "  > VIEW MORE</ButtonField>
 
     </div>
 }
