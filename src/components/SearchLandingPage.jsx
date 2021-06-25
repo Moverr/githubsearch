@@ -16,7 +16,8 @@ class SearchLandingPage extends Component {
         super(props);
 
         this.state = {
-            profiles: null
+            displayview:"tabular"
+            ,profiles: null
             , summary: null
             , profiledetail: {
                 "login": "Moverr",
@@ -57,7 +58,10 @@ class SearchLandingPage extends Component {
         this.getProfileData = this.getProfileData.bind(this);
         this.getsummary = this.getsummary.bind(this);
         this.handleProfileDetail = this.handleProfileDetail.bind(this);
+        this.profileTabular = this.profileTabular.bind(this);
+        
 
+        
     }
 
     //get data
@@ -184,11 +188,61 @@ class SearchLandingPage extends Component {
     handleProfileDetail(profileitem) {
 
     }
+   
+    profileTabular(props) {
+        const elems = this.getProfileData();
+
+        const profiles = elems.items;
+       
+        //depending
+        const profileCards = profiles.map((profile_item) =>
+        <tbody>
+					<tr>
+						<td>
+							1
+						</td>
+						<td>
+							TB - Monthly
+						</td>
+						<td>
+							01/04/2012
+						</td>
+						<td>
+							Default
+						</td>
+					</tr>
+				  
+					 
+				</tbody>     
+        );
+        return      <table className="table">
+            <thead> <tr>
+						<th>
+							#
+						</th>
+						<th>
+							Profile
+						</th>
+						<th>
+							 Is_admin
+						</th>
+						<th>
+							Status
+						</th>
+					</tr>
+				</thead>
+                {
+                    profileCards
+                }
+        </table>;
+    }
+
     //populate  cards 
     profileCards(props) {
         const elems = this.getProfileData();
 
         const profiles = elems.items;
+        //depending
         const profileCards = profiles.map((profile_item) => <ProfileCard callback={this.handleProfileDetail} key={profile_item.id} profile={profile_item} />);
         return profileCards;
     }
@@ -216,7 +270,7 @@ class SearchLandingPage extends Component {
                         <Summary summary={summary} />
                         <div className="col-md-6 tabular_window">
                             <ButtonField><i className="fa fa-bars"></i></ButtonField>
-                            <ButtonField><i className="fa fa-bars"></i></ButtonField>
+                            <ButtonField><i className="fa fa-id-card-o"></i></ButtonField>
                             
                         </div>
                     </div>
@@ -225,7 +279,9 @@ class SearchLandingPage extends Component {
 
 
                         <div className="col-md-8 main_window">
-                            {this.profileCards()}
+ {/* the other view model */}
+
+                            {this.profileTabular()}
                         </div>
 
                         <div className="col-md-4">
