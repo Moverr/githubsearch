@@ -158,15 +158,19 @@ class SearchLandingPage extends Component {
                         </div>
                     </div>
 
-
+                    <div className="row ">
+                    <div className="col-md-12 summary_window">
+                        <strong>Total: 12002  </strong> &nbsp; <strong>showing: 234  </strong>
+                    </div>
+                    </div>
                     {/* main window  */}
                     <div className="row ">
+                   
+
                         <div className="col-md-8 main_window">
-
                             {this.profileCards()}
-
-
                         </div>
+
                         <div className="col-md-4">
                             Detail
 				</div>
