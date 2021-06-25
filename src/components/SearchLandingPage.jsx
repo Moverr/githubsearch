@@ -13,14 +13,12 @@ class SearchLandingPage extends Component {
         
         this.state = {profiles:null} 
         this.profileCards = this.profileCards.bind(this);
+        this.getProfileData = this.getProfileData.bind(this);
         
     }
     
-  
-
-    //profile cards 
-    profileCards (props){
-        let elems = {
+    getProfileData(){
+        return   {
             "total_count": 427409,
             "incomplete_results": false,
             "items": [
@@ -131,6 +129,12 @@ class SearchLandingPage extends Component {
                 }
             ]
         };
+    }
+  
+
+    //profile cards 
+    profileCards (props){
+        const elems = this.getProfileData();
         console.log("we are  here ")
         const profiles = elems.items;
         console.log(elems);
