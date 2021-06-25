@@ -16,6 +16,7 @@ class SearchLandingPage extends Component {
         this.profileCards = this.profileCards.bind(this);
         this.getProfileData = this.getProfileData.bind(this);
         this.getsummary = this.getsummary.bind(this);
+        this.handleProfileDetail = this.handleProfileDetail.bind(this);
 
     }
 
@@ -140,12 +141,15 @@ class SearchLandingPage extends Component {
         const result = [elems.items.length,elems.total_count];
         return result;
  }
+ handleProfileDetail(profileitem){
+
+ }
     //populate  cards 
     profileCards(props) {
         const elems = this.getProfileData();
        
         const profiles = elems.items;
-        const profileCards = profiles.map((profile_item) => <ProfileCard profile={profile_item} />);
+        const profileCards = profiles.map((profile_item) => <ProfileCard callback={this.handleProfileDetail} key={profile_item.id} profile={profile_item} />);
         return profileCards;
     }
 
