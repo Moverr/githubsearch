@@ -137,7 +137,7 @@ class SearchLandingPage extends Component {
     profileCards(props) {
         const elems = this.getProfileData();
         const profiles = elems.items;
-        const profileCards = profiles.map((profile_item) => <ProfileCard profile_item />);
+        const profileCards = profiles.map((profile_item) => <ProfileCard profile={profile_item} />);
         return profileCards;
     }
 
