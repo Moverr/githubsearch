@@ -64,7 +64,7 @@ class SearchLandingPage extends Component {
         }
         this.profileCards = this.profileCards.bind(this);
         this.getProfileData = this.getProfileData.bind(this);
-        this.getsummary = this.getsummary.bind(this);
+        
         this.handleProfileDetail = this.handleProfileDetail.bind(this);
         this.profileTabular = this.profileTabular.bind(this);
         this.getdisplayview = this.getdisplayview.bind(this);
@@ -113,13 +113,7 @@ class SearchLandingPage extends Component {
         return this.state.profiles; 
     }
 
-    getsummary() {
-        const elems =  this.state.profiles;
-        console.log("passers passer ")
-        console.log(elems);
-        const result = [0,0];// [elems.items.length, elems.total_count];
-        return result;
-    }
+  
     handleProfileDetail(profileitem) {
 
     }
