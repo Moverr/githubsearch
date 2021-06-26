@@ -119,10 +119,40 @@ class SearchLandingPage extends Component {
         return this.state.profiles; 
     }
 
+     
   
-    handleProfileDetail(e) {
+    handleProfileDetail(e,item) {
         e.preventDefault();
-        alert("pass me");
+
+        if(item.detail != undefined){
+            this.setState(
+                {profiledetail:item.detail}             
+                );
+                return;
+        }
+       
+        const query = this.state.searchQuery;
+        const page = this.state.page;
+        const per_page = this.state.per_page;
+        const url  = item.url;
+        let promise =    axios.get(`${url}`,{
+           
+            headers:{
+                'Accept': 'application/vnd.github.v3+json',
+                'Authorization': 'token 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'
+            }
+        });
+  
+        promise.then((response)=>{
+            
+            
+
+             this.setState(
+                 {profiledetail:response.data}             
+                 );
+        })
+
+        console.log(item);
     }
 
     // populate tabular data
