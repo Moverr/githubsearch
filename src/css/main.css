@@ -5,11 +5,14 @@ Main Cards Design ::
     width: 200px;
     height: 300px;
     /* border: 1px #666633 solid; */
-     padding: 5px; margin: 7px; float: left;  cursor: pointer;
+     padding: 5px; margin: 7px; float: left; 
 }
 .profileCard:hover{
     /* background:  #e7e7db  ; */
      border-radius: 4px; 
+}
+.profileCard button:hover{
+    cursor: pointer; background: rgb(119, 119, 214); color: #fff;
 }
 .profileCard .username{
     font-size: 20px; font-weight: bold; text-align: center;

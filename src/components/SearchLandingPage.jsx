@@ -22,7 +22,7 @@ class SearchLandingPage extends Component {
 
         this.state = {
             page:1 ,
-            per_page:100,
+            per_page:50,
             searchQuery:"",
             displayview: "date"
             , profiles: []
@@ -69,6 +69,7 @@ class SearchLandingPage extends Component {
         this.profileTabular = this.profileTabular.bind(this);
         this.getdisplayview = this.getdisplayview.bind(this);
         this.handleSearchQuery = this.handleSearchQuery.bind(this);
+        this.handlerSubmitButton = this.handlerSubmitButton.bind(this);
 
     }
 
@@ -77,8 +78,13 @@ class SearchLandingPage extends Component {
         this.setState({searchQuery:e.target.value});
     }
     
-     fetchData = async () =>{
+    handlerSubmitButton(e){
+        e.preventDefault();
+        this.fetchData();
+    }
+    
 
+     fetchData = async () =>{      
 
         const query = this.state.searchQuery;
         const page = this.state.page;
@@ -114,8 +120,9 @@ class SearchLandingPage extends Component {
     }
 
   
-    handleProfileDetail(profileitem) {
-
+    handleProfileDetail(e) {
+        e.preventDefault();
+        alert("pass me");
     }
 
     // populate tabular data
@@ -185,7 +192,7 @@ class SearchLandingPage extends Component {
                                 <span className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></span>
                                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     {/* //todo: Search Form  */}
-                                    <SearchForm callback={this.handleSearchQuery} placeholder="Search" />
+                                    <SearchForm handlesearchbutton={this.handlerSubmitButton} handlersearchquery={this.handleSearchQuery} placeholder="Search" />
 
                                 </div>
                             </nav>

@@ -15,7 +15,7 @@ const ProfileCard = function (props) {
             {profile.login}
         </div>
         
-        <ButtonField   className="btn btn-priimary "  > VIEW MORE</ButtonField>
+        <ButtonField   className="btn btn-priimary "  callback={(e)=>{props.callback(e,profile);}} > VIEW MORE</ButtonField>
 
     </div>
 }
