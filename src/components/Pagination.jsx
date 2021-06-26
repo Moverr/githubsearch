@@ -8,7 +8,7 @@ const Pagination = function (props) {
                 <ButtonField className="page-link docs-creator" href="#"><i className="fa fa-backward"></i></ButtonField>
             </li>
             <li className="page-item">
-                <ButtonField class="page-link docs-creator" href="#">1</ButtonField>
+                <ButtonField className="page-link docs-creator" href="#">1</ButtonField>
             </li>
             <li className="page-item">
                 <button className="page-link docs-creator" href="#">2</button>

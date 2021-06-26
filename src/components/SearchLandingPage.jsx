@@ -10,15 +10,18 @@ import DetailsView from './DetailsView';
 import ButtonField from './formelements/ButtonField';
 import TabularView from './TabularView';
 
+import axios from 'axios';
+
 class SearchLandingPage extends Component {
+
 
 
     constructor(props) {
         super(props);
 
         this.state = {
-            displayview:"tabular"
-            ,profiles: null
+            displayview: "tabular"
+            , profiles: null
             , summary: null
             , profiledetail: {
                 "login": "Moverr",
@@ -60,8 +63,22 @@ class SearchLandingPage extends Component {
         this.getsummary = this.getsummary.bind(this);
         this.handleProfileDetail = this.handleProfileDetail.bind(this);
         this.profileTabular = this.profileTabular.bind(this);
-        this.getdisplayview =this.getdisplayview.bind(this);
+        this.getdisplayview = this.getdisplayview.bind(this);
 
+    }
+
+    componentDidMount(){
+        console.log("blessed");
+        
+        //fetch data 
+        const url  = 'https://api.github.com/search/users?q="ju"&page=1&per_page=5';
+        let po =   axios.get(`${url}`,{
+            headers:{
+                'Accept': 'application/vnd.github.v3+json',
+                'Authorization': 'token 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'
+            }
+        });
+      console.log(po);
         
     }
 
@@ -189,37 +206,30 @@ class SearchLandingPage extends Component {
     handleProfileDetail(profileitem) {
 
     }
-   
+
+    // populate tabular data
     profileTabular(props) {
         const elems = this.getProfileData();
-
-        const profiles = elems.items;
-       
-        //depending
+        const profiles = elems.items; 
         const profileCards = profiles.map((profile_item) =>
-      
-					<tr key={profile_item.id}> 
-						<td>
-							 <Avatar image={profile_item.avatar_url} />
-						</td>
-						<td>
-						{profile_item.login}
-						</td>
-						<td>
-                        {profile_item.html_url}
-						</td>
-					 
-					</tr>
-				  
-					 
-				
+            <tr key={profile_item.id}>
+                <td>
+                    <Avatar image={profile_item.avatar_url} />
+                </td>
+                <td>
+                    {profile_item.login}
+                </td>
+                <td>
+                    {profile_item.html_url}
+                </td>
+
+            </tr> 
         );
-        const result  = <TabularView data={profileCards} />
-     
+        const result = <TabularView data={profileCards} />
         return result;
     }
 
-    //populate  cards 
+    // populate cards 
     profileCards(props) {
         const elems = this.getProfileData();
 
@@ -229,23 +239,26 @@ class SearchLandingPage extends Component {
         return profileCards;
     }
 
-    getdisplayview(){
+    //decide which view to showcase 
+    getdisplayview() {
         const displayview = this.state.displayview;
         switch (displayview) {
             case "tabular":
-                    return this.profileTabular();
-                
-        
+                return this.profileTabular();
+
+
             default:
                 return this.profileCards();
-                
+
         }
     }
 
-    
+
+
+
     render() {
         const summary = this.getsummary();
-      
+
         return (
             <div>
                 <div className="container-fluid">
@@ -266,18 +279,17 @@ class SearchLandingPage extends Component {
                         {/* //summary represetnation  */}
                         <Summary summary={summary} />
                         <div className="col-md-6 tabular_window">
-                            <ButtonField callback={()=>{this.setState({displayview:"tabular"})}}><i className="fa fa-bars"></i></ButtonField>
-                            <ButtonField  callback={()=>{this.setState({displayview:"cards"})}}><i className="fa fa-id-card-o"></i></ButtonField>
-                            
+                            <ButtonField callback={() => { this.setState({ displayview: "tabular" }) }}><i className="fa fa-bars"></i></ButtonField>
+                            <ButtonField callback={() => { this.setState({ displayview: "cards" }) }}><i className="fa fa-id-card-o"></i></ButtonField>
+
                         </div>
                     </div>
                     {/* main window  */}
                     <div className="row ">
 
 
-                        <div className="col-md-8 main_window"> 
-                             {this.getdisplayview()}
- 
+                        <div className="col-md-8 main_window">
+                            {this.getdisplayview()}
                         </div>
 
                         <div className="col-md-4">

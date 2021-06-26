@@ -5,8 +5,7 @@ const TabularView = function (props) {
 
     const result = <table className="table tabular_view">
         <thead> <tr>
-            <th>
-
+            <th>  
             </th>
             <th>
                 Username
