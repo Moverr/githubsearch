@@ -4,7 +4,7 @@ import ButtonField from './formelements/ButtonField';
  
 const Pagination = function (props) {
 
-    const page = 10;
+    const page = 3;
     const total_pages = 100;
     let items = []
     let next_items = 2;
