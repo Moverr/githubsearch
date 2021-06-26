@@ -11,6 +11,7 @@ import ButtonField from './formelements/ButtonField';
 import TabularView from './TabularView';
 
 import axios from 'axios';
+import ProfileService from './services/ProfileService';
 
 class SearchLandingPage extends Component {
 
@@ -70,6 +71,8 @@ class SearchLandingPage extends Component {
     componentDidMount(){
         console.log("blessed");
         
+        const po = ProfileService();
+        console.log(po);
         //fetch data 
         const url  = 'https://api.github.com/search/users?q="ju"&page=1&per_page=5';
         let promise =   axios.get(`${url}`,{
