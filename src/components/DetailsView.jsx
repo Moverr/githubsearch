@@ -4,8 +4,9 @@ import Avatar from './utils/Avatar';
 const DetailsView = function (props) {
 
     const profiledetail = props.profiledetail;
-   console.log(props)
-    return <div className="profileCard">
+ 
+    return <div className="detailprofileCard">
+        <h1>Profile</h1>.
                 <Avatar image={profiledetail.avatar_url} />
                        <span><strong>Name :</strong> {profiledetail.name} </span><br/>
                        <span><strong>Company :</strong> {profiledetail.company} </span><br/>

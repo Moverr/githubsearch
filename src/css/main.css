@@ -59,3 +59,11 @@ Main Cards Design ::
 .tabular_view tr:hover{
     background: #eee; cursor: pointer;
 }
+
+.detailprofileCard  h1 {
+    font-size: 20px;
+}
+
+.detailprofileCard  img {
+    width: 200px; border-radius: 20px;
+}

@@ -72,13 +72,17 @@ class SearchLandingPage extends Component {
         
         //fetch data 
         const url  = 'https://api.github.com/search/users?q="ju"&page=1&per_page=5';
-        let po =   axios.get(`${url}`,{
+        let promise =   axios.get(`${url}`,{
             headers:{
                 'Accept': 'application/vnd.github.v3+json',
                 'Authorization': 'token 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'
             }
         });
-      console.log(po);
+
+        promise.then((response)=>{
+            console.log(response.data);
+        })
+     
         
     }
 
