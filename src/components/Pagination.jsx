@@ -1,50 +1,48 @@
 import React from 'react'
 import ButtonField from './formelements/ButtonField';
 
-const computelist = function (prop) {
-    const page = 1;
+ 
+const Pagination = function (props) {
+
+    const page = 10;
     const total_pages = 100;
     let items = []
     let next_items = 2;
-    if (page == 1) {
+    if (page < 3) {
         for (let i = page; i <= next_items + page; i++) {
-            items.push(<li>${i}</li>);
+            const item =    <li className="page-item">
+            <ButtonField className="page-link docs-creator" href="#">{i}</ButtonField>
+           </li>
+            items.push(item);
         }
-        return items;
+      
+    }else   if (page > 2) {
+        for (let i = page - next_items; i <= next_items + page; i++) {
+         const item =    <li className="page-item">
+            <ButtonField className="page-link docs-creator" href="#">{i}</ButtonField>
+           </li>
+            items.push(item);
+        }
     }
-    for (let i = page - next_items; i <= next_items + page; i++) {
-        items.push(<li>${i}</li>);
-    }
+   
 
-    return items;
-}
 
-const Pagination = function (props) {
-    return <nav>
+
+    return (
         <ul className="pagination">
             <li className="page-item">
                 <ButtonField className="page-link docs-creator" href="#"><i className="fa fa-backward"></i></ButtonField>
             </li>
-            <li className="page-item">
-                <ButtonField className="page-link docs-creator" href="#">1</ButtonField>
-            </li>
-            <li className="page-item">
-                <ButtonField className="page-link docs-creator" href="#">2</ButtonField>
-            </li>
-            <li className="page-item">
-                <ButtonField className="page-link docs-creator" href="#">3</ButtonField>
-            </li>
-            <li className="page-item">
-                <ButtonField className="page-link docs-creator" href="#">4</ButtonField>
-            </li>
-            <li className="page-item">
-                <ButtonField className="page-link docs-creator" href="#">5</ButtonField>
-            </li>
+            {
+                items
+            }
+          
+         
             <li className="page-item">
                 <ButtonField className="page-link docs-creator" href="#"><i className="fa fa-forward"></i></ButtonField>
             </li>
         </ul>
-    </nav>;
+    );
 }
 
 

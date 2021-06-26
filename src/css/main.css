@@ -70,3 +70,10 @@ Main Cards Design ::
 .detailprofileCard  img {
     width: 200px; border-radius: 20px;
 }
+.pagination {
+    width: 100%; margin-left: 25%; color: darkgray !important;
+}
+
+.pagination  button{
+    color: darkgray !important;
+}
