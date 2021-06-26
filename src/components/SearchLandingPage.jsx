@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import SearchForm from './SearchForm';
 import ProfileCard from './ProfileCard';
 
@@ -68,7 +68,7 @@ class SearchLandingPage extends Component {
 
             headers: {
                 'Accept': 'application/vnd.github.v3+json',
-                'Authorization': 'token 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'
+                'Authorization': 'token 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'
             }
         });
 
@@ -103,7 +103,7 @@ class SearchLandingPage extends Component {
     handleProfileDetail(e, item) {
         e.preventDefault();
 
-        if (item.detail != undefined) {
+        if (item.detail !== undefined) {
             this.setState(
                 { profiledetail: item.detail }
             );
@@ -114,15 +114,13 @@ class SearchLandingPage extends Component {
             loader: true, loader_text: "Proccessing Profile detail ..."
         });
 
-        const query = this.state.searchQuery;
-        const page = this.state.page;
-        const per_page = this.state.per_page;
+       
         const url = item.url;
         let promise = axios.get(`${url}`, {
 
             headers: {
                 'Accept': 'application/vnd.github.v3+json',
-                'Authorization': 'token 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'
+                'Authorization': 'token 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'
             }
         });
 
@@ -142,7 +140,7 @@ class SearchLandingPage extends Component {
     profileTabular(props) {
         const elems = this.getProfileData();
         const profiles = elems.items;
-        if (elems == undefined || profiles == undefined) return false;
+        if (elems === undefined || profiles === undefined) return false;
 
 
         const profileCards = profiles.map((profile_item) =>
@@ -168,7 +166,7 @@ class SearchLandingPage extends Component {
         const elems = this.getProfileData();
         const profiles = elems.items;
 
-        if (elems == undefined || profiles == undefined) return false;
+        if (elems === undefined || profiles === undefined) return false;
 
 
         //depending
@@ -232,7 +230,7 @@ class SearchLandingPage extends Component {
                                 <span className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></span>
                                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     {/* //todo: Search Form  */}
-                                    <SearchForm handlesearchbutton={this.handlerSubmitButton} handlersearchquery={this.handleSearchQuery} placeholder="Search" />
+                                    <SearchForm handlesearchbutton={()=>this.handlerSubmitButton} handlersearchquery={()=>this.handleSearchQuery} placeholder="Search" />
 
                                 </div>
                             </nav>
