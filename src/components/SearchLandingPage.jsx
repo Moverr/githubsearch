@@ -60,7 +60,7 @@ class SearchLandingPage extends Component {
         this.getsummary = this.getsummary.bind(this);
         this.handleProfileDetail = this.handleProfileDetail.bind(this);
         this.profileTabular = this.profileTabular.bind(this);
-        
+        this.getdisplayview =this.getdisplayview.bind(this);
 
         
     }
@@ -229,8 +229,23 @@ class SearchLandingPage extends Component {
         return profileCards;
     }
 
+    getdisplayview(){
+        const displayview = this.state.displayview;
+        switch (displayview) {
+            case "tabular":
+                    return this.profileTabular();
+                
+        
+            default:
+                return this.profileCards();
+                
+        }
+    }
+
+    
     render() {
         const summary = this.getsummary();
+      
         return (
             <div>
                 <div className="container-fluid">
@@ -262,8 +277,10 @@ class SearchLandingPage extends Component {
 
                         <div className="col-md-8 main_window">
  {/* the other view model */}
+         {this.getdisplayview()}
+ 
 
-                            {this.profileTabular()}
+                          
                         </div>
 
                         <div className="col-md-4">
