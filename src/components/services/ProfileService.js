@@ -12,7 +12,6 @@ function ProfileService(props) {
     }
   });
   return promise;
-
 }
 
 export default ProfileService;
