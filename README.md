@@ -1,3 +1,15 @@
+# GITHUB SEARCH
+
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+
+Github search is a react application enabling user interface for the github user search engie. 
+ []("https://github.com/Moverr/githubsearch/blob/4e539d9ff25179da3b20cf20cf523805cd6d1f01/images/cardview.PNG" )
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
