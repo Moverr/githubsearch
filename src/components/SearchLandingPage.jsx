@@ -1,4 +1,4 @@
-import React, { Component, useEffect  } from 'react';
+import React, { Component, useEffect } from 'react';
 import SearchForm from './SearchForm';
 import ProfileCard from './ProfileCard';
 
@@ -11,7 +11,7 @@ import ButtonField from './formelements/ButtonField';
 import TabularView from './TabularView';
 
 import axios from 'axios';
- 
+
 
 class SearchLandingPage extends Component {
 
@@ -21,102 +21,107 @@ class SearchLandingPage extends Component {
         super(props);
 
         this.state = {
-            page:1 ,
-            per_page:50,
-            searchQuery:"",
+            page: 1,
+            per_page: 50,
+            searchQuery: "",
             displayview: "date"
             , profiles: []
-            , summary: [0,0]
+            , summary: [0, 0]
             , profiledetail: null
         }
         this.profileCards = this.profileCards.bind(this);
         this.getProfileData = this.getProfileData.bind(this);
-        
+
         this.handleProfileDetail = this.handleProfileDetail.bind(this);
         this.profileTabular = this.profileTabular.bind(this);
         this.getdisplayview = this.getdisplayview.bind(this);
         this.handleSearchQuery = this.handleSearchQuery.bind(this);
         this.handlerSubmitButton = this.handlerSubmitButton.bind(this);
+        this.handlePagination = this.handlePagination.bind(this);
 
     }
 
-    handleSearchQuery(e){
+    handleSearchQuery(e) {
         e.preventDefault();
-        this.setState({searchQuery:e.target.value});
+        this.setState({ searchQuery: e.target.value ,page:1});
     }
-    
-    handlerSubmitButton(e){
+
+    handlerSubmitButton(e) {
         e.preventDefault();
         this.fetchData();
     }
-    
 
-     fetchData = async () =>{      
+
+    fetchData = async () => {
 
         const query = this.state.searchQuery;
         const page = this.state.page;
         const per_page = this.state.per_page;
-        const url  = 'https://api.github.com/search/users?q="'+query+'"&page='+page+'&per_page='+per_page;
-        let promise =    axios.get(`${url}`,{
-           
-            headers:{
+        const url = 'https://api.github.com/search/users?q="' + query + '"&page=' + page + '&per_page=' + per_page;
+        let promise = axios.get(`${url}`, {
+
+            headers: {
                 'Accept': 'application/vnd.github.v3+json',
                 'Authorization': 'token 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'
             }
         });
-  
-        promise.then((response)=>{
-            
-            const total_count = response.data.total_count
-            const result_count = response.data.items.length;
-            const summary = [result_count,total_count];
 
-             this.setState(
-                 {profiles:response.data,summary:summary}             
-                 );
+        promise.then((response) => {
+
+            const total_count = response.data.total_count
+
+            const per_page = this.state.per_page;
+            const page = this.state.page;
+            const result_count = page * per_page;
+            //response.data.items.length;
+            const summary = [result_count, total_count];
+
+            this.setState(
+                { profiles: response.data, summary: summary }
+            );
         })
     }
-    componentDidMount(){    
-           
-        this.fetchData();  
+    componentDidMount() {
+
+        this.fetchData();
     }
 
- 
-    getProfileData() { 
-        return this.state.profiles; 
+
+    getProfileData() {
+        return this.state.profiles;
     }
 
-     
-  
-    handleProfileDetail(e,item) {
+
+
+    handleProfileDetail(e, item) {
         e.preventDefault();
 
-        if(item.detail != undefined){
+        if (item.detail != undefined) {
             this.setState(
-                {profiledetail:item.detail}             
-                );
-                return;
+                { profiledetail: item.detail }
+            );
+            return;
         }
-       
+
         const query = this.state.searchQuery;
         const page = this.state.page;
         const per_page = this.state.per_page;
-        const url  = item.url;
-        let promise =    axios.get(`${url}`,{
-           
-            headers:{
+        const url = item.url;
+        let promise = axios.get(`${url}`, {
+
+            headers: {
                 'Accept': 'application/vnd.github.v3+json',
                 'Authorization': 'token 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'
             }
         });
-  
-        promise.then((response)=>{
-            
-            
 
-             this.setState(
-                 {profiledetail:response.data}             
-                 );
+        promise.then((response) => {
+
+
+
+            this.setState(
+                { profiledetail: response.data }
+            );
         })
 
         console.log(item);
@@ -125,12 +130,12 @@ class SearchLandingPage extends Component {
     // populate tabular data
     profileTabular(props) {
         const elems = this.getProfileData();
-        const profiles = elems.items; 
-        if(elems == undefined || profiles == undefined ) return false;
+        const profiles = elems.items;
+        if (elems == undefined || profiles == undefined) return false;
 
-     
+
         const profileCards = profiles.map((profile_item) =>
-            <tr key={profile_item.id} onClick={(e)=>{this.handleProfileDetail(e,profile_item)}}>
+            <tr key={profile_item.id} onClick={(e) => { this.handleProfileDetail(e, profile_item) }}>
                 <td>
                     <Avatar image={profile_item.avatar_url} />
                 </td>
@@ -141,7 +146,7 @@ class SearchLandingPage extends Component {
                     {profile_item.html_url}
                 </td>
 
-            </tr> 
+            </tr>
         );
         const result = <TabularView data={profileCards} />
         return result;
@@ -151,8 +156,8 @@ class SearchLandingPage extends Component {
     profileCards(props) {
         const elems = this.getProfileData();
         const profiles = elems.items;
-       
-        if(elems == undefined || profiles == undefined ) return false;
+
+        if (elems == undefined || profiles == undefined) return false;
 
 
         //depending
@@ -174,8 +179,25 @@ class SearchLandingPage extends Component {
         }
     }
 
-
-
+    handlePagination(e, pageOption) {
+        e.preventDefault();
+        let page = this.state.page;
+        if (typeof pageOption === 'number') {
+            this.setState({ page: page });
+        } else {
+            if (pageOption === 'next') {
+                page = page + 1;
+            } else if (pageOption === 'prev') {
+                page = page > 1 ? page - 1 : page;
+            }
+            else {
+                return null;
+            }
+            this.setState({ page: page });
+        }
+        this.fetchData();
+        console.log("blue and wine ");
+    }
 
     render() {
         const summary = this.state.summary
@@ -219,7 +241,7 @@ class SearchLandingPage extends Component {
                     </div>
 
                     <div className="row">
-                        <Pagination total_count={this.state.summary[1]} per_page={this.state.per_page} page={this.state.page}  />
+                        <Pagination callback={this.handlePagination} total_count={this.state.summary[1]} per_page={this.state.per_page} page={this.state.page} />
                     </div>
                 </div>
             </div>

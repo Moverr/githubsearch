@@ -15,7 +15,7 @@ const Pagination = function (props) {
     if (page < 3) {
         for (let i = page; i <= next_items + page; i++) {
             const item =    <li className="page-item">
-            <ButtonField className="page-link docs-creator" href="#">{i}</ButtonField>
+            <ButtonField callback={(e)=>props.callback(e,i)} className="page-link docs-creator" href="#">{i}</ButtonField>
            </li>
             items.push(item);
         }
@@ -23,7 +23,7 @@ const Pagination = function (props) {
     }else   if (page > 2) {
         for (let i = page - next_items; i <= next_items + page; i++) {
          const item =    <li className="page-item">
-            <ButtonField className="page-link docs-creator" href="#">{i}</ButtonField>
+            <ButtonField  callback={(e)=>props.callback(e,i)} className="page-link docs-creator" href="#">{i}</ButtonField>
            </li>
             items.push(item);
         }
@@ -35,7 +35,7 @@ const Pagination = function (props) {
     return (
         <ul className="pagination">
             <li className="page-item">
-                <ButtonField className="page-link docs-creator" href="#"><i className="fa fa-backward"></i></ButtonField>
+                <ButtonField  callback={(e)=>props.callback(e,'prev')} className="page-link docs-creator" href="#"><i className="fa fa-backward"></i></ButtonField>
             </li>
             {
                 items
@@ -43,7 +43,7 @@ const Pagination = function (props) {
           
          
             <li className="page-item">
-                <ButtonField className="page-link docs-creator" href="#"><i className="fa fa-forward"></i></ButtonField>
+                <ButtonField   callback={(e)=>props.callback(e,'next')} className="page-link docs-creator" href="#"><i className="fa fa-forward"></i></ButtonField>
             </li>
         </ul>
     );
