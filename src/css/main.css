@@ -39,7 +39,7 @@ Main Cards Design ::
 .tabular_view img {
     vertical-align: middle;
     border-style: none;
-    width: 25px;
+    width: 45px;
     border-radius: 10px;
 }
 .tabular_view tr {
@@ -49,9 +49,13 @@ Main Cards Design ::
     width: 20px;
 }
 .tabular_view td:nth-child(2){
-    width: 100px; font-size: large; font-weight: 600; 
+    width: 100px; font-size: large; font-weight: 600;  padding-top: 25px;
 }
 
 .tabular_view td:nth-child(3){
-    color: dimgray;
+    color: dimgray;   padding-top: 25px;
+}
+
+.tabular_view tr:hover{
+    background: #eee; cursor: pointer;
 }
