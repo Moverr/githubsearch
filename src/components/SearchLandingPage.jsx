@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect  } from 'react';
 import SearchForm from './SearchForm';
 import ProfileCard from './ProfileCard';
 
@@ -11,7 +11,7 @@ import ButtonField from './formelements/ButtonField';
 import TabularView from './TabularView';
 
 import axios from 'axios';
-import ProfileService from './services/ProfileService';
+ 
 
 class SearchLandingPage extends Component {
 
@@ -22,7 +22,7 @@ class SearchLandingPage extends Component {
 
         this.state = {
             displayview: "tabular"
-            , profiles: null
+            , profiles: []
             , summary: null
             , profiledetail: {
                 "login": "Moverr",
@@ -68,11 +68,12 @@ class SearchLandingPage extends Component {
 
     }
 
+    
     componentDidMount(){
         console.log("blessed");
         
-        const po = ProfileService();
-        console.log(po);
+      
+     
         //fetch data 
         const url  = 'https://api.github.com/search/users?q="ju"&page=1&per_page=5';
         let promise =   axios.get(`${url}`,{
@@ -81,9 +82,11 @@ class SearchLandingPage extends Component {
                 'Authorization': 'token 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'
             }
         });
-
+  
         promise.then((response)=>{
+            console.log("Lord is merciful");
             console.log(response.data);
+          //  this.setState({profiles:response.data.items});
         })
      
         
@@ -92,7 +95,7 @@ class SearchLandingPage extends Component {
     //get data
     getProfileData() {
 
-        return {};
+        return this.state.profiles;
         /*
         return {
             "total_count": 427409,
