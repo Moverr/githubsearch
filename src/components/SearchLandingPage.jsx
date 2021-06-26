@@ -207,9 +207,14 @@ class SearchLandingPage extends Component {
 
         return (
             <div>
+              
                 <div className="container-fluid">
+               
                     <div className="row">
                         <div className="col-md-12">
+                        <div className="  col-md-6  loader">
+ddd
+</div>
                             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                                 <span className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></span>
                                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -219,6 +224,7 @@ class SearchLandingPage extends Component {
                                 </div>
                             </nav>
                         </div>
+                        
                     </div>
 
                     <div className="row ">
