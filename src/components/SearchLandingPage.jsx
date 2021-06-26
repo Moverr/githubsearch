@@ -206,7 +206,7 @@ class SearchLandingPage extends Component {
 						{profile_item.login}
 						</td>
 						<td>
-                        {profile_item.type}
+                        {profile_item.html_url}
 						</td>
 					 
 					</tr>

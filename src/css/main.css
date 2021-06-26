@@ -39,6 +39,19 @@ Main Cards Design ::
 .tabular_view img {
     vertical-align: middle;
     border-style: none;
-    width: 100px;
-    border-radius: 100%;
+    width: 25px;
+    border-radius: 10px;
+}
+.tabular_view tr {
+    height: 40px;
+}
+.tabular_view td:nth-child(1){
+    width: 20px;
+}
+.tabular_view td:nth-child(2){
+    width: 100px; font-size: large; font-weight: 600; 
+}
+
+.tabular_view td:nth-child(3){
+    color: dimgray;
 }
