@@ -4,8 +4,12 @@ import ButtonField from './formelements/ButtonField';
  
 const Pagination = function (props) {
 
-    const page = 3;
-    const total_pages = 100;
+    //get  the current page 
+    const page = props.page;
+    const per_page = props.per_page;
+    const total_count = props.total_count;
+    //todo: calculate the entire from the result count
+    const total_pages = total_count/per_page;
     let items = []
     let next_items = 2;
     if (page < 3) {

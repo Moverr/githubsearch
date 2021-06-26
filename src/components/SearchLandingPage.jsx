@@ -219,7 +219,7 @@ class SearchLandingPage extends Component {
                     </div>
 
                     <div className="row">
-                        <Pagination />
+                        <Pagination total_count={this.state.summary[1]} per_page={this.state.per_page} page={this.state.page}  />
                     </div>
                 </div>
             </div>
