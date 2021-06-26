@@ -19,7 +19,7 @@ Install the dependencies and devDependencies and start the server.
 $ clone the app
 $ npm install -d
 $ npm start or yarn run
-
+```
 
 # Getting Started with Create React App
 
