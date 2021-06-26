@@ -163,7 +163,7 @@ class SearchLandingPage extends Component {
 
      
         const profileCards = profiles.map((profile_item) =>
-            <tr key={profile_item.id}>
+            <tr key={profile_item.id} onClick={(e)=>{this.handleProfileDetail(e,profile_item)}}>
                 <td>
                     <Avatar image={profile_item.avatar_url} />
                 </td>
