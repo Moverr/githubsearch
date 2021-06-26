@@ -21,6 +21,9 @@ class SearchLandingPage extends Component {
         super(props);
 
         this.state = {
+            page:1 ,
+            per_page:100,
+            searchQuery:"",
             displayview: "date"
             , profiles: []
             , summary: [0,0]
@@ -65,18 +68,24 @@ class SearchLandingPage extends Component {
         this.handleProfileDetail = this.handleProfileDetail.bind(this);
         this.profileTabular = this.profileTabular.bind(this);
         this.getdisplayview = this.getdisplayview.bind(this);
+        this.handleSearchQuery = this.handleSearchQuery.bind(this);
 
     }
 
+    handleSearchQuery(e){
+        e.preventDefault();
+        this.setState({searchQuery:e.target.value});
+    }
     
-    componentDidMount(){
-        console.log("blessed");
-        
-      
-     
-        //fetch data 
-        const url  = 'https://api.github.com/search/users?q="mov"&page=1&per_page=100';
-        let promise =   axios.get(`${url}`,{
+     fetchData = async () =>{
+
+
+        const query = this.state.searchQuery;
+        const page = this.state.page;
+        const per_page = this.state.per_page;
+        const url  = 'https://api.github.com/search/users?q="'+query+'"&page='+page+'&per_page='+per_page;
+        let promise =    axios.get(`${url}`,{
+           
             headers:{
                 'Accept': 'application/vnd.github.v3+json',
                 'Authorization': 'token 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'
@@ -88,20 +97,20 @@ class SearchLandingPage extends Component {
             const total_count = response.data.total_count
             const result_count = response.data.items.length;
             const summary = [result_count,total_count];
-            
+
              this.setState(
                  {profiles:response.data,summary:summary}             
                  );
         })
-     
-        
+    }
+    componentDidMount(){    
+           
+        this.fetchData();  
     }
 
-    //get data
-    getProfileData() {
-
-        return this.state.profiles;
-       
+ 
+    getProfileData() { 
+        return this.state.profiles; 
     }
 
     getsummary() {
@@ -182,7 +191,7 @@ class SearchLandingPage extends Component {
                                 <span className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></span>
                                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                     {/* //todo: Search Form  */}
-                                    <SearchForm placeholder="Search" />
+                                    <SearchForm callback={this.handleSearchQuery} placeholder="Search" />
 
                                 </div>
                             </nav>
