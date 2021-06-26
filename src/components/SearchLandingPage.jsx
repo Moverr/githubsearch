@@ -8,6 +8,7 @@ import Summary from './Summary';
 import Avatar from './utils/Avatar';
 import DetailsView from './DetailsView';
 import ButtonField from './formelements/ButtonField';
+import TabularView from './TabularView';
 
 class SearchLandingPage extends Component {
 
@@ -196,45 +197,26 @@ class SearchLandingPage extends Component {
        
         //depending
         const profileCards = profiles.map((profile_item) =>
-        <tbody>
-					<tr>
+      
+					<tr key={profile_item.id}> 
 						<td>
-							1
+							 <Avatar image={profile_item.avatar_url} />
 						</td>
 						<td>
-							TB - Monthly
+						{profile_item.login}
 						</td>
 						<td>
-							01/04/2012
+                        {profile_item.type}
 						</td>
-						<td>
-							Default
-						</td>
+					 
 					</tr>
 				  
 					 
-				</tbody>     
+				
         );
-        return      <table className="table">
-            <thead> <tr>
-						<th>
-							#
-						</th>
-						<th>
-							Profile
-						</th>
-						<th>
-							 Is_admin
-						</th>
-						<th>
-							Status
-						</th>
-					</tr>
-				</thead>
-                {
-                    profileCards
-                }
-        </table>;
+        const result  = <TabularView data={profileCards} />
+     
+        return result;
     }
 
     //populate  cards 

@@ -1,5 +1,4 @@
-import React from 'react'
-import ButtonField from './formelements/ButtonField';
+import React from 'react' ;
 import Avatar from './utils/Avatar';
 
 const DetailsView = function (props) {
