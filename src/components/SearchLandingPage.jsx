@@ -21,6 +21,8 @@ class SearchLandingPage extends Component {
         super(props);
 
         this.state = {
+            loader: false,
+            loader_text: "",
             page: 1,
             per_page: 50,
             searchQuery: "",
@@ -43,7 +45,7 @@ class SearchLandingPage extends Component {
 
     handleSearchQuery(e) {
         e.preventDefault();
-        this.setState({ searchQuery: e.target.value ,page:1});
+        this.setState({ searchQuery: e.target.value, page: 1 });
     }
 
     handlerSubmitButton(e) {
@@ -56,9 +58,12 @@ class SearchLandingPage extends Component {
 
         const query = this.state.searchQuery;
         const page = this.state.page;
-        
+
         const per_page = this.state.per_page;
         const url = 'https://api.github.com/search/users?q="' + query + '"&page=' + page + '&per_page=' + per_page;
+        this.setState({
+            loader: true, loader_text: "Proccessing request ..."
+        });
         let promise = axios.get(`${url}`, {
 
             headers: {
@@ -78,8 +83,9 @@ class SearchLandingPage extends Component {
             const summary = [result_count, total_count];
 
             this.setState(
-                { profiles: response.data, summary: summary }
+                { profiles: response.data, summary: summary,loader: false }
             );
+
         })
     }
     componentDidMount() {
@@ -104,6 +110,10 @@ class SearchLandingPage extends Component {
             return;
         }
 
+        this.setState({
+            loader: true, loader_text: "Proccessing Profile detail ..."
+        });
+
         const query = this.state.searchQuery;
         const page = this.state.page;
         const per_page = this.state.per_page;
@@ -121,7 +131,7 @@ class SearchLandingPage extends Component {
 
 
             this.setState(
-                { profiledetail: response.data }
+                { profiledetail: response.data ,loader: false}
             );
         })
 
@@ -183,8 +193,8 @@ class SearchLandingPage extends Component {
     handlePagination(e, pageOption) {
         e.preventDefault();
         let page = this.state.page;
-    
-        if (typeof pageOption === 'number') {           
+
+        if (typeof pageOption === 'number') {
 
             this.setState({ page: pageOption });
         } else {
@@ -199,7 +209,7 @@ class SearchLandingPage extends Component {
             this.setState({ page: page });
         }
         this.fetchData();
-        
+
     }
 
     render() {
@@ -207,14 +217,17 @@ class SearchLandingPage extends Component {
 
         return (
             <div>
-              
+
                 <div className="container-fluid">
-               
+
                     <div className="row">
                         <div className="col-md-12">
-                        <div className="  col-md-6  loader">
-ddd
-</div>
+                            {/* col-md-6  */}
+                            <div className={
+                                this.state.loader ? 'col-md-6  loader-on' : 'loader-off'
+                            }>
+                                {this.state.loader_text}
+                            </div>
                             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                                 <span className="navbar-brand docs-creator" href="#"><i className="fa fa-github"></i></span>
                                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -224,7 +237,7 @@ ddd
                                 </div>
                             </nav>
                         </div>
-                        
+
                     </div>
 
                     <div className="row ">
