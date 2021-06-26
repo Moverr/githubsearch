@@ -56,6 +56,7 @@ class SearchLandingPage extends Component {
 
         const query = this.state.searchQuery;
         const page = this.state.page;
+        
         const per_page = this.state.per_page;
         const url = 'https://api.github.com/search/users?q="' + query + '"&page=' + page + '&per_page=' + per_page;
         let promise = axios.get(`${url}`, {
@@ -182,8 +183,10 @@ class SearchLandingPage extends Component {
     handlePagination(e, pageOption) {
         e.preventDefault();
         let page = this.state.page;
-        if (typeof pageOption === 'number') {
-            this.setState({ page: page });
+    
+        if (typeof pageOption === 'number') {           
+
+            this.setState({ page: pageOption });
         } else {
             if (pageOption === 'next') {
                 page = page + 1;
@@ -196,7 +199,7 @@ class SearchLandingPage extends Component {
             this.setState({ page: page });
         }
         this.fetchData();
-        console.log("blue and wine ");
+        
     }
 
     render() {
