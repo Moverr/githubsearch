@@ -89,6 +89,8 @@ class SearchLandingPage extends Component {
     //get data
     getProfileData() {
 
+        return {};
+        /*
         return {
             "total_count": 427409,
             "incomplete_results": false,
@@ -200,11 +202,14 @@ class SearchLandingPage extends Component {
                 }
             ]
         };
+    
+    */
     }
 
     getsummary() {
         const elems = this.getProfileData();
-        const result = [elems.items.length, elems.total_count];
+        const result = [0,0];
+        // [elems.items.length, elems.total_count];
         return result;
     }
     handleProfileDetail(profileitem) {
@@ -215,6 +220,9 @@ class SearchLandingPage extends Component {
     profileTabular(props) {
         const elems = this.getProfileData();
         const profiles = elems.items; 
+        if(elems == undefined || profiles == undefined ) return false;
+
+     
         const profileCards = profiles.map((profile_item) =>
             <tr key={profile_item.id}>
                 <td>
@@ -236,8 +244,11 @@ class SearchLandingPage extends Component {
     // populate cards 
     profileCards(props) {
         const elems = this.getProfileData();
-
         const profiles = elems.items;
+       
+        if(elems == undefined || profiles == undefined ) return false;
+
+
         //depending
         const profileCards = profiles.map((profile_item) => <ProfileCard callback={this.handleProfileDetail} key={profile_item.id} profile={profile_item} />);
         return profileCards;
