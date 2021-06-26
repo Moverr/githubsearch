@@ -27,40 +27,7 @@ class SearchLandingPage extends Component {
             displayview: "date"
             , profiles: []
             , summary: [0,0]
-            , profiledetail: {
-                "login": "Moverr",
-                "id": 8292044,
-                "node_id": "MDQ6VXNlcjgyOTIwNDQ=",
-                "avatar_url": "https://avatars.githubusercontent.com/u/8292044?v=4",
-                "gravatar_id": "",
-                "url": "https://api.github.com/users/Moverr",
-                "html_url": "https://github.com/Moverr",
-                "followers_url": "https://api.github.com/users/Moverr/followers",
-                "following_url": "https://api.github.com/users/Moverr/following{/other_user}",
-                "gists_url": "https://api.github.com/users/Moverr/gists{/gist_id}",
-                "starred_url": "https://api.github.com/users/Moverr/starred{/owner}{/repo}",
-                "subscriptions_url": "https://api.github.com/users/Moverr/subscriptions",
-                "organizations_url": "https://api.github.com/users/Moverr/orgs",
-                "repos_url": "https://api.github.com/users/Moverr/repos",
-                "events_url": "https://api.github.com/users/Moverr/events{/privacy}",
-                "received_events_url": "https://api.github.com/users/Moverr/received_events",
-                "type": "User",
-                "site_admin": false,
-                "name": "Muyinda Rogers ",
-                "company": null,
-                "blog": "https://moverr.github.io/",
-                "location": "Uganda, Kampala",
-                "email": null,
-                "hireable": true,
-                "bio": "Interested in Functional Programming, Big Data and Artificial Intelligence.\r\n",
-                "twitter_username": "MuyindaRogers4",
-                "public_repos": 188,
-                "public_gists": 3,
-                "followers": 42,
-                "following": 115,
-                "created_at": "2014-07-28T17:50:59Z",
-                "updated_at": "2021-06-25T09:17:14Z"
-            }
+            , profiledetail: null
         }
         this.profileCards = this.profileCards.bind(this);
         this.getProfileData = this.getProfileData.bind(this);

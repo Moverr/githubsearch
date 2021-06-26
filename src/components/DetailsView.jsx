@@ -5,6 +5,7 @@ const DetailsView = function (props) {
 
     const profiledetail = props.profiledetail;
  
+    if(profiledetail == null || profiledetail == undefined) return null;
     return <div className="detailprofileCard">
         <h1>Profile</h1>.
                 <Avatar image={profiledetail.avatar_url} />
