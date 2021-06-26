@@ -266,8 +266,8 @@ class SearchLandingPage extends Component {
                         {/* //summary represetnation  */}
                         <Summary summary={summary} />
                         <div className="col-md-6 tabular_window">
-                            <ButtonField><i className="fa fa-bars"></i></ButtonField>
-                            <ButtonField><i className="fa fa-id-card-o"></i></ButtonField>
+                            <ButtonField callback={()=>{this.setState({displayview:"tabular"})}}><i className="fa fa-bars"></i></ButtonField>
+                            <ButtonField  callback={()=>{this.setState({displayview:"cards"})}}><i className="fa fa-id-card-o"></i></ButtonField>
                             
                         </div>
                     </div>
@@ -275,20 +275,16 @@ class SearchLandingPage extends Component {
                     <div className="row ">
 
 
-                        <div className="col-md-8 main_window">
- {/* the other view model */}
-         {this.getdisplayview()}
+                        <div className="col-md-8 main_window"> 
+                             {this.getdisplayview()}
  
-
-                          
                         </div>
 
                         <div className="col-md-4">
-
                             <DetailsView className="col-md-4" profiledetail={this.state.profiledetail} />
-
                         </div>
                     </div>
+
                     <div className="row">
                         <Pagination />
                     </div>
