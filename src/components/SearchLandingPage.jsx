@@ -68,8 +68,7 @@ class SearchLandingPage extends Component {
 
             headers: {
                 'Accept': 'application/vnd.github.v3+json'
-                //,
-                // 'Authorization': 'token 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'
+                
             }
         });
 
@@ -121,8 +120,7 @@ class SearchLandingPage extends Component {
 
             headers: {
                 'Accept': 'application/vnd.github.v3+json'
-                // ,
-                // 'Authorization': 'token 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'
+                
             }
         });
 
