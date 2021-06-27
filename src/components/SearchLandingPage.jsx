@@ -67,8 +67,9 @@ class SearchLandingPage extends Component {
         let promise = axios.get(`${url}`, {
 
             headers: {
-                'Accept': 'application/vnd.github.v3+json',
-                'Authorization': 'token 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'
+                'Accept': 'application/vnd.github.v3+json'
+                //,
+                // 'Authorization': 'token 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'
             }
         });
 
@@ -119,8 +120,9 @@ class SearchLandingPage extends Component {
         let promise = axios.get(`${url}`, {
 
             headers: {
-                'Accept': 'application/vnd.github.v3+json',
-                'Authorization': 'token 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'
+                'Accept': 'application/vnd.github.v3+json'
+                // ,
+                // 'Authorization': 'token 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'
             }
         });
 
